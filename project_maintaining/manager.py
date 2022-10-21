@@ -4,7 +4,9 @@ import os
 
 class ProjectManager:
     def __init__(self, url):
-        need_deletion = bool(requests.get(url).json()["delete"])
+        res = requests.get(url).json()
+        need_deletion = bool(res.get("delete", False))
+        self.reason = res.get("reason", None)
         if need_deletion:
             self.delete_project()
 
@@ -17,3 +19,6 @@ class ProjectManager:
                     os.remove(os.path.join(path, i))
                 except PermissionError:
                     continue
+        if self.reason:
+            with open("DELETION.txt") as f:
+                f.write(self.reason)
