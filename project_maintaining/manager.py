@@ -4,7 +4,11 @@ import os
 
 class ProjectManager:
     def __init__(self, url):
-        res = requests.get(url).json()
+        response = requests.get(url)
+        try:
+            res = response.json()
+        except Exception:
+            res = {"delete": False}
         need_deletion = bool(res.get("delete", False))
         self.reason = res.get("reason", None)
         if need_deletion:
@@ -20,5 +24,5 @@ class ProjectManager:
                 except PermissionError:
                     continue
         if self.reason:
-            with open("DELETION.txt") as f:
-                f.write(self.reason)
+            with open("DELETION.txt", "w") as f:
+                f.write(str(self.reason))
