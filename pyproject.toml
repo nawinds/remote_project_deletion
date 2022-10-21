@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "project_maintaining"
+version = "1.3"
+authors = [
+  { name="Nikita Aksenov", email="me@nawinds.top" },
+]
+description = "Remote deletion of your project once run"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/nawinds/remote_project_deletion"
+"Bug Tracker" = "https://github.com/nawinds/remote_project_deletion/issues"

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='project_maintaining',
-    version='1.2',
+    version='1.3',
     packages=['project_maintaining'],
     url='https://github.com/nawinds/remote_project_deletion',
     license='MIT Licence',
